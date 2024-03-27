@@ -4,6 +4,13 @@ import sys
 import urllib.request
 import os
 
+def create_directory(ytvids):
+    """
+    Create a directory if it does not exist.
+    """
+    if not os.path.exists('ytvids'):
+        os.makedirs('ytvids')
+
 def get_video():
     """
     Retrieve video details and display available resolutions.
