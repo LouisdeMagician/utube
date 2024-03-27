@@ -4,12 +4,6 @@ import sys
 import urllib.request
 import os
 
-def create_directory(ytvids):
-    """
-    Create a directory if it does not exist.
-    """
-    if not os.path.exists('ytvids'):
-        os.makedirs('ytvids')
 
 def get_video():
     """
@@ -31,6 +25,11 @@ def save_video(resolutions):
     Download the selected video in the chosen resolution.
     """
     try:
+        # Create the directory if it does not exist
+        directory = 'ytvids'
+        if not os.path.exists(directory):
+            os.makedirs(directory)
+
         index = int(input("Choose resolution: "))
         chosen_resolution = resolutions[index - 1]
         print(f"Downloading {chosen_resolution.resolution}...")
